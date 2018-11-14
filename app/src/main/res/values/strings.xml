@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Quiz Pop</string>
+    <string name="btnPlay">Play</string>
+    <string name="btnShare">Share</string>
+    <string name="btnPlayGame">Play the game!</string>
+    <string name="btnTutorial">How to play</string>
+    <string name="txtScore">Score: 0</string>
+    <string name="txtQuestionsCount">Question: 1/x</string>
+    <string name="txtTimer">00:30</string>
+    <string name="txtOption1">Option 1</string>
+    <string name="txtOption2">Option 2</string>
+    <string name="txtOption3">Option 3</string>
+    <string name="txtOption4">Option 4</string>
+    <string name="btnConfirm">Confirm</string>
+</resources>
