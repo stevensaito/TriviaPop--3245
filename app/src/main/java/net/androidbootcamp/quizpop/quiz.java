@@ -3,6 +3,7 @@ package net.androidbootcamp.quizpop;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,8 +15,11 @@ import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 public class quiz extends AppCompatActivity {
+
+    private static final long COUNTDOWN_IN_MILLIS = 30000;
 
     private TextView txtViewQuestion;
     private TextView txtViewScore;
@@ -29,6 +33,10 @@ public class quiz extends AppCompatActivity {
     private Button btnNext;
 
     private ColorStateList txtColourDefaultRb;
+    private ColorStateList txtColourDefaultCd;
+
+    private CountDownTimer countDownTimer;
+    private long timeLeftInMilis;
 
     private List<Question> questionList;
     private int questionCounter;
@@ -55,6 +63,7 @@ public class quiz extends AppCompatActivity {
         btnNext = findViewById(R.id.btnConfirm);
 
         txtColourDefaultRb = rb1.getTextColors();
+        txtColourDefaultCd = txtViewCountDown.getTextColors();
 
         QuizDbHelper dbHelper = new QuizDbHelper(this);
         questionList = dbHelper.getAllQuestions();
@@ -108,15 +117,52 @@ public class quiz extends AppCompatActivity {
             answered = false;
             btnNext.setText("Confirm");
 
+            timeLeftInMilis = COUNTDOWN_IN_MILLIS;
+            startCountDown();
+
         }else{
-            
-            finishQuiz(); 
+
+
+            finishQuiz(score);
         } 
+    }
+    private void startCountDown(){
+
+        countDownTimer = new CountDownTimer(timeLeftInMilis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeLeftInMilis = millisUntilFinished;
+                updateCountDownText();
+            }
+
+            @Override
+            public void onFinish() {
+                timeLeftInMilis = 0;
+
+                updateCountDownText();
+                checkAnswer();
+            }
+        }.start();
+    }
+    private void updateCountDownText(){
+
+        int minutes = (int) (timeLeftInMilis/1000/60);
+        int seconds = (int)(timeLeftInMilis/1000%60);
+
+        String timeFormatted = String.format(Locale.getDefault(),"%02d:%02d",minutes,seconds);
+        txtViewCountDown.setText(timeFormatted);
+
+        if(timeLeftInMilis<10000){
+            txtViewCountDown.setTextColor(Color.RED);
+        }else{
+            txtViewCountDown.setTextColor(txtColourDefaultCd);
+        }
     }
 
     private void checkAnswer(){
 
         answered = true;
+        countDownTimer.cancel();
 
         RadioButton rbSelected = findViewById(rbGroup.getCheckedRadioButtonId());
         int answerNr = rbGroup.indexOfChild(rbSelected)+1;
@@ -124,7 +170,6 @@ public class quiz extends AppCompatActivity {
         if(answerNr == currentQuestion.getAnswerNum()){
             score++;
             txtViewScore.setText("Score " + score);
-
         }
 
         showSolution();
@@ -166,8 +211,16 @@ public class quiz extends AppCompatActivity {
 
     }
 
-    private void finishQuiz() {
+    private void finishQuiz(int score) {
 
-        finish();
+        Intent intent = new Intent(quiz.this, results.class);
+        Bundle bundle = new Bundle ();
+
+        bundle.putInt("Score", score);
+
+        intent.putExtras(bundle);
+
+        startActivity(intent);
     }
+
 }
