@@ -168,7 +168,8 @@ public class quiz extends AppCompatActivity {
         int answerNr = rbGroup.indexOfChild(rbSelected)+1;
 
         if(answerNr == currentQuestion.getAnswerNum()){
-            score++;
+            int timeLeftInMilisINT = (int) timeLeftInMilis/1000;
+            score = score + timeLeftInMilisINT;
             txtViewScore.setText("Score " + score);
         }
 

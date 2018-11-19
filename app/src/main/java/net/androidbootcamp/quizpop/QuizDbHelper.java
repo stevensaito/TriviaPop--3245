@@ -57,7 +57,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 "The Golden Gate Bridge", "Brooklyn Bridge" , "George Washington Bridge" , "Seven Mile Bridge" , 1);
         addQuestion(q1);
         Question q2 = new Question("What is the colourful name of China’s second-longest river, whose waterfall froze spectacularly during an unusual cold nap in 2014?",
-                "Yangtze River", "Yellow River", "Mekong River", "Huai River" , 2);
+                "Yangtze River", "Yellow River", "Mekong River", "Huai River" , 3);
         addQuestion(q2);
         Question q3 = new Question ("Does the Taj Mahal appears pink at dawn, dazzling white during the day, golden at dusk, and silver by moonlight? True or False? " ,
                 "True" , "False", null, null, 1);

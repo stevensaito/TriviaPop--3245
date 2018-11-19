@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quiz Pop</string>
+    <string name="app_name">Trivia Pop</string>
     <string name="btnPlay">Play</string>
     <string name="btnShare">Share</string>
     <string name="btnPlayGame">Play the game!</string>
@@ -12,4 +12,8 @@
     <string name="txtOption3">Option 3</string>
     <string name="txtOption4">Option 4</string>
     <string name="btnConfirm">Confirm</string>
+    <string name="btnHome">Home</string>
+    <string name="txtResultsTitle">Results</string>
+    <string name="fieldEnterName">Enter your name</string>
+    <string name="btnResultsSubmit">Submit</string>
 </resources>

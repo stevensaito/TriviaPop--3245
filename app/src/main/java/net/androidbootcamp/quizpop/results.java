@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class results extends AppCompatActivity {
@@ -28,14 +29,39 @@ public class results extends AppCompatActivity {
         int score = intent.getIntExtra("Score", 0);
 
         TextView textViewScore = findViewById(R.id.txtViewUserScore);
+        final EditText fieldEnterName = findViewById(R.id.fieldEnterName);
 
         textViewScore.setText("Final Score: " + score);
 
-        Button button = findViewById(R.id.btnPlayAgain);
+        Button buttonPlayAgain = findViewById(R.id.btnPlayAgain);
+        Button buttonHome = findViewById(R.id.btnHome);
+        final Button buttonSubmit = findViewById(R.id.btnResultsSubmit);
+
+        if(score >= 75) {
+            buttonSubmit.setVisibility(View.VISIBLE);
+            fieldEnterName.setVisibility(View.VISIBLE);
+        }
+        else {
+            buttonSubmit.setVisibility(View.INVISIBLE);
+            fieldEnterName.setVisibility(View.INVISIBLE);
+        }
+
+        buttonSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String name = fieldEnterName.getText().toString();
+            }
+        });
 
         saveQuiz(score);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonPlayAgain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(results.this,quiz.class));
+            }
+        });
+        buttonHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(results.this,MainPage.class));
