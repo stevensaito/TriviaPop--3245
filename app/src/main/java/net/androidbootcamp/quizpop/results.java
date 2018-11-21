@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
+
 public class results extends AppCompatActivity {
 
     private static final int REQUEST_CODE_QUIZ = 1;
@@ -19,6 +21,8 @@ public class results extends AppCompatActivity {
     private TextView textViewHighScore;
     private int highScore;
 
+    private List<Question> userList;
+    private String name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +53,11 @@ public class results extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = fieldEnterName.getText().toString();
+                name = fieldEnterName.getText().toString();
             }
         });
 
-        saveQuiz(score);
+        //saveQuiz(name, score);
 
         buttonPlayAgain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,10 +72,18 @@ public class results extends AppCompatActivity {
             }
         });
     }
+   /*
+    private void saveQuiz(String username, int userScore){
 
-    private void saveQuiz(int userScore){
+        QuizDbHelper dbHelper = new QuizDbHelper(this);
+
+
+        User user = new User(username, userScore);
+
+        dbHelper.addGamer(user);
 
 
 
     }
+    */
 }

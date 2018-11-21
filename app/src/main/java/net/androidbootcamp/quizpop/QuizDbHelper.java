@@ -16,6 +16,8 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "TriviaPop.db";
     private static final int DATABASE_VERSION = 1;
 
+    private static final String TABLE_GAMERS = "gamers";
+
     private SQLiteDatabase db;
 
     public QuizDbHelper(Context context ) {
@@ -38,17 +40,47 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 QuestionsTable.COLUMN_ANSWER_NM + " INTEGER " +
                 ")";
 
+        //creates table to hold player name and score
+        String CREATE_GAMERS_TABLE = "CREATE TABLE "
+                + TABLE_GAMERS + " ( " +
+                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "name TEXT, " +
+                "score INTEGER )";
+        db.execSQL(CREATE_GAMERS_TABLE);
+
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
+        //fills the database with questions
         fillQuestionsTable();
+
+
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMERS);
         onCreate(db);
 
+
     }
+
+    public void addGamer(User user){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("name", user.getUserName());
+        values.put("ratings", user.getUserScore());
+
+        db.insert(TABLE_GAMERS, null, values);
+        db.close();
+
+
+    }
+
+
     private void fillQuestionsTable(){
 
 
@@ -80,6 +112,17 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
         db.insert(QuestionsTable.TABLE_NAME, null, cv);
 
+
+    }
+    public List<User>getAllScores(){
+
+        List<User> userList = new ArrayList<>();
+
+        db = getReadableDatabase();
+        Cursor cr = db.rawQuery("SELECT * FROM " + TABLE_GAMERS, null);
+
+        cr.close();
+        return userList;
 
     }
 
