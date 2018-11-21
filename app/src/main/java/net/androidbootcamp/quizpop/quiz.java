@@ -19,7 +19,7 @@ import java.util.Locale;
 
 public class quiz extends AppCompatActivity {
 
-    private static final long COUNTDOWN_IN_MILLIS = 30000;
+    private static final long COUNTDOWN_IN_MILLIS = 15000;
 
     private TextView txtViewQuestion;
     private TextView txtViewScore;
@@ -31,6 +31,7 @@ public class quiz extends AppCompatActivity {
     private RadioButton rb3;
     private RadioButton rb4;
     private Button btnNext;
+    private int counter = 0; ///////COMMENTOCMOEMACOREKFJEARLK;VESRKVBKJETBHKSETBHJK
 
     private ColorStateList txtColourDefaultRb;
     private ColorStateList txtColourDefaultCd;
@@ -88,6 +89,7 @@ public class quiz extends AppCompatActivity {
                 }else{
 
                     shownNextQuestion();
+                    counter++;
                 }
             }
         });
@@ -100,9 +102,14 @@ public class quiz extends AppCompatActivity {
         rb3.setTextColor(txtColourDefaultRb);
         rb4.setTextColor(txtColourDefaultRb);
 
+        rb1.setVisibility(View.VISIBLE);
+        rb2.setVisibility(View.VISIBLE);
+        rb3.setVisibility(View.VISIBLE);
+        rb4.setVisibility(View.VISIBLE);
+
         rbGroup.clearCheck();
 
-        if(questionCounter < questionCountTotal){
+        if(questionCounter < 5){
 
             currentQuestion = questionList.get(questionCounter);
             txtViewQuestion.setText(currentQuestion.getQuestion());
@@ -113,7 +120,7 @@ public class quiz extends AppCompatActivity {
             rb4.setText(currentQuestion.getOption4());
 
             questionCounter++;
-            txtViewQuestionCount.setText("Question " + questionCounter + "/" + questionCountTotal);
+            txtViewQuestionCount.setText("Question " + questionCounter + "/" + 5);
             answered = false;
             btnNext.setText("Confirm");
 
@@ -122,7 +129,7 @@ public class quiz extends AppCompatActivity {
 
         }else{
 
-
+            counter = 0;
             finishQuiz(score);
         } 
     }
@@ -183,26 +190,47 @@ public class quiz extends AppCompatActivity {
         rb3.setTextColor(Color.RED);
         rb4.setTextColor(Color.RED);
 
+        rb1.setVisibility(View.INVISIBLE);
+        rb2.setVisibility(View.INVISIBLE);
+        rb3.setVisibility(View.INVISIBLE);
+        rb4.setVisibility(View.INVISIBLE);
+
         switch (currentQuestion.getAnswerNum()){
             case 1:
+                rb1.setVisibility(View.VISIBLE);
                 rb1.setTextColor(Color.GREEN);
                 txtViewQuestion.setText("Answer 1 is correct");
                 break;
             case 2:
-                rb3.setTextColor(Color.GREEN);
-                txtViewQuestion.setText("Answer 2 is correct");
+                rb2.setVisibility(View.VISIBLE);
+                rb2.setTextColor(Color.GREEN);
                 break;
             case 3:
+                rb3.setVisibility(View.VISIBLE);
                 rb3.setTextColor(Color.GREEN);
                 txtViewQuestion.setText("Answer 3 is correct");
                 break;
             case 4:
+                rb4.setVisibility(View.VISIBLE);
                 rb4.setTextColor(Color.GREEN);
                 txtViewQuestion.setText("Answer 4 is correct");
                 break;
-
         }
-        if (questionCounter < questionCountTotal){
+
+        if(rb1.isChecked()) {
+            rb1.setVisibility(View.VISIBLE);
+        }
+        else if(rb2.isChecked()){
+            rb2.setVisibility(View.VISIBLE);
+        }
+        else if(rb3.isChecked()){
+            rb3.setVisibility(View.VISIBLE);
+        }
+        else if(rb4.isChecked()){
+            rb4.setVisibility(View.VISIBLE);
+        }
+
+        if (questionCounter < 5){
 
             btnNext.setText("Next");
         }else{

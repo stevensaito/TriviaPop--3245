@@ -85,13 +85,13 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q13);
         Question q14 = new Question("Which city is associated with Heathrow Airport?" ,"Glasgow","Birmingham","London", "Dublin",3);
         addQuestion(q14);
-        Question q15 = new Question("Which is the only big species that can fly backwards?" ,"Hummingbird","Swallow","Swifts", "Wren",1);
+        Question q15 = new Question("Which is the only bird species that can fly backwards?" ,"Hummingbird","Swallow","Swifts", "Wren",1);
         addQuestion(q15);
         Question q16 = new Question("Name the Egyptian-born star of 'Doctor Zhivago' and 'Lawrence of Arabia' who died in 2015 aged 83?" ,"Youssef Wahbi","Omar Sharif","Tony Shalhoub", "Omid Djalili",2);
         addQuestion(q16);
-        Question q17 = new Question("B what name was Albert de Salvo better known?" ,"Jack the Ripper","The Boston Strangler","The Night Caller", "The Moors Murderer",2);
+        Question q17 = new Question("What name was Albert de Salvo better known?" ,"Jack the Ripper","The Boston Strangler","The Night Caller", "The Moors Murderer",2);
         addQuestion(q17);
-        Question q18 = new Question("If 'feline' means cate-like and 'canine' means dog-like, what does 'ranine' mean?" ,"Cow-like","Rat-like","Bird-like", "Frog-like",4);
+        Question q18 = new Question("If 'feline' means cat-like and 'canine' means dog-like, what does 'ranine' mean?" ,"Cow-like","Rat-like","Bird-like", "Frog-like",4);
         addQuestion(q18);
         Question q19 = new Question("What is the capital city of Croatia?" ,"Sarajevo","Vienna","Zagreb", "Ljubljana",3);
         addQuestion(q19);
@@ -99,6 +99,10 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q20);
         Question q21 = new Question("Which contentious word means to open rocks by means of high pressure chemicals in order to obtain natural gas or oil?" ,"Screeding","Termiting","Fracking", "Bugging",3);
         addQuestion(q21);
+        Question q22 = new Question("Which of the islands listed is northernmost?" ,"Isle of Man","Cuba","Greenland", "Pitcairn",3);
+        addQuestion(q22);
+        Question q23 = new Question("Some birds are 'fossorial'. What does this mean?" ,"They dig burrows","The have no song","They use other birds nests", "They cannot fly",1);
+        addQuestion(q23);
     }
     private void addQuestion(Question question){
 
