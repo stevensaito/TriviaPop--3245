@@ -30,7 +30,7 @@ public class results extends AppCompatActivity {
 
         Intent intent = getIntent();
 
-        int score = intent.getIntExtra("Score", 0);
+        final int score = intent.getIntExtra("Score", 0);
 
         TextView textViewScore = findViewById(R.id.txtViewUserScore);
         final EditText fieldEnterName = findViewById(R.id.fieldEnterName);
@@ -54,10 +54,11 @@ public class results extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 name = fieldEnterName.getText().toString();
+                saveQuiz(name, score);
             }
         });
 
-        //saveQuiz(name, score);
+
 
         buttonPlayAgain.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +73,7 @@ public class results extends AppCompatActivity {
             }
         });
     }
-   /*
+
     private void saveQuiz(String username, int userScore){
 
         QuizDbHelper dbHelper = new QuizDbHelper(this);
@@ -85,5 +86,5 @@ public class results extends AppCompatActivity {
 
 
     }
-    */
+
 }
