@@ -41,7 +41,7 @@ public class results extends AppCompatActivity {
         Button buttonHome = findViewById(R.id.btnHome);
         final Button buttonSubmit = findViewById(R.id.btnResultsSubmit);
 
-        if(score >= 75) {
+        if(score >= 37) {
             buttonSubmit.setVisibility(View.VISIBLE);
             fieldEnterName.setVisibility(View.VISIBLE);
         }
