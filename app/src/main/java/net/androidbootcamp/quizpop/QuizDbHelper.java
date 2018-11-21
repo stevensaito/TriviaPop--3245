@@ -67,6 +67,38 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q4);
         Question q5 = new Question("Which nation was the most visited in 2011 with 79.5 million tourists?" ,"Brazil","USA","Japan", "France",4);
         addQuestion(q5);
+        Question q6 = new Question("Which 2000 email virus caused losses of $10 billion dollar in 20 countries by pretending ut was a love letter?" ,"Romeo Virus","Love Bug Virus","XO Virus", "Deadly Valentine Virus",2);
+        addQuestion(q6);
+        Question q7 = new Question("As of 2015, which goalie holds the record for the most wins in a single season in NHL history?" ,"Bernie Parent","Roberto Luongo","Patrick Roy", "Martin Brodeur",4);
+        addQuestion(q7);
+        Question q8 = new Question("Named after the Greek Goddess of victory, which brand company saw its founder, Phil Knight, step down as CEO in 2004?" ,"Addidas","Nike","Asics", "Reebok",2);
+        addQuestion(q8);
+        Question q9 = new Question("For which 2012 movie did Ang Lee win his second Oscar ofr Best Director" ,"Life of Pi","Django Unchained","Brokeback Mountain", "Cloud Atlas",1);
+        addQuestion(q9);
+        Question q10 = new Question("What is the last name of 'Rolling in the Deep' singer Adele?" ,"Adams","Ames","Armstrong", "Adins",4);
+        addQuestion(q10);
+        Question q11 = new Question("What was Daniel Craig's role in the Star Wars: The Force Awakens?" ,"Unkar Plutt","A Stormtrooper","Lieutenant Connix", "A Bar Patron",2);
+        addQuestion(q11);
+        Question q12 = new Question("What 17-pound specimen of fruit fetched $6,100 at a 2008 auction in Japan, where it is considered a luxury food?" ,"Jackfruit","Pumpkin","Watermelon", "Honeydew",3);
+        addQuestion(q12);
+        Question q13 = new Question("What is Grinch's pet Max?" ,"White Christmas","Cat","Canary", "Dog",4);
+        addQuestion(q13);
+        Question q14 = new Question("Which city is associated with Heathrow Airport?" ,"Glasgow","Birmingham","London", "Dublin",3);
+        addQuestion(q14);
+        Question q15 = new Question("Which is the only big species that can fly backwards?" ,"Hummingbird","Swallow","Swifts", "Wren",1);
+        addQuestion(q15);
+        Question q16 = new Question("Name the Egyptian-born star of 'Doctor Zhivago' and 'Lawrence of Arabia' who died in 2015 aged 83?" ,"Youssef Wahbi","Omar Sharif","Tony Shalhoub", "Omid Djalili",2);
+        addQuestion(q16);
+        Question q17 = new Question("B what name was Albert de Salvo better known?" ,"Jack the Ripper","The Boston Strangler","The Night Caller", "The Moors Murderer",2);
+        addQuestion(q17);
+        Question q18 = new Question("If 'feline' means cate-like and 'canine' means dog-like, what does 'ranine' mean?" ,"Cow-like","Rat-like","Bird-like", "Frog-like",4);
+        addQuestion(q18);
+        Question q19 = new Question("What is the capital city of Croatia?" ,"Sarajevo","Vienna","Zagreb", "Ljubljana",3);
+        addQuestion(q19);
+        Question q20 = new Question("How many spots are there on traditional 6-sided dices?" ,"21","22","23", "20",1);
+        addQuestion(q20);
+        Question q21 = new Question("Which contentious word means to open rocks by means of high pressure chemicals in order to obtain natural gas or oil?" ,"Screeding","Termiting","Fracking", "Bugging",3);
+        addQuestion(q21);
     }
     private void addQuestion(Question question){
 
