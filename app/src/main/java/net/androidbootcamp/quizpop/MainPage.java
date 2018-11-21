@@ -21,6 +21,11 @@ public class MainPage extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Intent myIntent = new Intent(Intent.ACTION_SEND);
+                myIntent.setType("text/plain");
+                String shareCmt = "This is a great app. Try it out!";
+                myIntent.putExtra(Intent.EXTRA_TEXT,shareCmt);
+                startActivity(Intent.createChooser(myIntent, "Share using"));
             }
         });
         btnInstruct.setOnClickListener(new View.OnClickListener() {
