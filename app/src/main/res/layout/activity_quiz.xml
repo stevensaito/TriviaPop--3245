@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackgroundQuiz"
     tools:context=".quiz">
 
     <TextView
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txtScore"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.11"
@@ -22,13 +24,14 @@
         android:id="@+id/txtQuestions"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/txtQuestionsCount"
+        android:textColor="@color/colorWhite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.093"
@@ -40,13 +43,14 @@
         android:id="@+id/txtTimer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/txtTimer"
+        android:textColor="@color/colorWhite"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -77,25 +81,29 @@
             android:id="@+id/radioButton_1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/txtOption1" />
+            android:text="@string/txtOption1"
+            android:textColor="@color/colorWhite" />
 
         <RadioButton
             android:id="@+id/radioButton_2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/txtOption2" />
+            android:text="@string/txtOption2"
+            android:textColor="@color/colorWhite" />
 
         <RadioButton
             android:id="@+id/radioButton_3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/txtOption3" />
+            android:text="@string/txtOption3"
+            android:textColor="@color/colorWhite" />
 
         <RadioButton
             android:id="@+id/radioButton_4"
             android:layout_width="231dp"
             android:layout_height="wrap_content"
-            android:text="@string/txtOption4" />
+            android:text="@string/txtOption4"
+            android:textColor="@color/colorWhite" />
     </RadioGroup>
 
     <TextView
@@ -103,14 +111,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@id/radioGroup_Choice"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
         android:text="The questions will appear here"
         android:textAlignment="center"
+        android:textColor="@color/colorWhite"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -120,14 +129,15 @@
 
     <Button
         android:id="@+id/btnConfirm"
-        android:layout_width="wrap_content"
+        android:layout_width="138dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/colorWhite"
         android:text="@string/btnConfirm"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBackground"
     tools:context=".MainPage">
 
     <Button
@@ -16,6 +17,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorWhite"
         android:text="@string/btnShare"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,6 +37,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorWhite"
         android:text="@string/btnTutorial"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,6 +57,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorWhite"
         android:text="@string/btnPlayGame"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -71,7 +75,9 @@
         android:layout_marginBottom="8dp"
         android:gravity="center_vertical|center_horizontal"
         android:text="@string/app_name"
+        android:textColor="#FFFFFF"
         android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
