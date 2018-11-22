@@ -19,7 +19,8 @@
         <activity android:name=".MainPage" />
         <activity android:name=".results" />
         <activity android:name=".quiz" />
-        <activity android:name=".tutorial"></activity>
+        <activity android:name=".tutorial" />
+        <activity android:name=".HighScores"></activity>
     </application>
 
 </manifest>

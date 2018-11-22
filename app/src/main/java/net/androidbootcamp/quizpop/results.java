@@ -23,6 +23,9 @@ public class results extends AppCompatActivity {
 
     private List<Question> userList;
     private String name;
+    private int useScore;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +34,9 @@ public class results extends AppCompatActivity {
         Intent intent = getIntent();
 
         final int score = intent.getIntExtra("Score", 0);
+
+
+
 
         TextView textViewScore = findViewById(R.id.txtViewUserScore);
         final EditText fieldEnterName = findViewById(R.id.fieldEnterName);
@@ -53,8 +59,10 @@ public class results extends AppCompatActivity {
         buttonSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = fieldEnterName.getText().toString();
-                saveQuiz(name, score);
+
+               /* name = fieldEnterName.getText().toString();
+                saveQuiz(name, score);*/
+                displayNextAct(name, score);
             }
         });
 
@@ -74,10 +82,15 @@ public class results extends AppCompatActivity {
         });
     }
 
+    private void displayNextAct(String name, int score){
+
+        Intent intent = new Intent(results.this,HighScores.class);
+        startActivity(intent);
+    }
+
     private void saveQuiz(String username, int userScore){
 
         QuizDbHelper dbHelper = new QuizDbHelper(this);
-
 
         User user = new User(username, userScore);
 

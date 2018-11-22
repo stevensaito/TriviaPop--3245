@@ -16,4 +16,6 @@
     <string name="txtResultsTitle">Results</string>
     <string name="fieldEnterName">Enter your name</string>
     <string name="btnResultsSubmit">Submit</string>
+    <string name="btnPlayAgain">Play Again</string>
+    <string name="textViewHighScores">High Scores</string>
 </resources>

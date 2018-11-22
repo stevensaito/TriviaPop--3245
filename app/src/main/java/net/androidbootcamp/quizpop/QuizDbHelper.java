@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import net.androidbootcamp.quizpop.QuizContract.*;
+import net.androidbootcamp.quizpop.UserContract.*;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "TriviaPop.db";
     private static final int DATABASE_VERSION = 1;
 
-    private static final String TABLE_GAMERS = "gamers";
+
 
     private SQLiteDatabase db;
 
@@ -41,12 +43,21 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 ")";
 
         //creates table to hold player name and score
-        String CREATE_GAMERS_TABLE = "CREATE TABLE "
+        final String SQL_CREATE_USER_TABLE = "CREATE TABLE " +
+                UserTable.TABLE_NAME + " ( " +
+                UserTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                UserTable.COLUMN_NAME + " TEXT, " +
+                UserTable.COLUMN_SCORE + " INTEGER " + ")";
+
+        //creates table to hold player name and score
+
+       /*String CREATE_GAMERS_TABLE = "CREATE TABLE "
                 + TABLE_GAMERS + " ( " +
                 "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "name TEXT, " +
                 "score INTEGER )";
-        db.execSQL(CREATE_GAMERS_TABLE);
+        */
+        db.execSQL(SQL_CREATE_USER_TABLE);
 
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
         //fills the database with questions
@@ -60,7 +71,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_GAMERS);
+        db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME);
         onCreate(db);
 
 
@@ -68,14 +79,15 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     public void addGamer(User user){
 
-        SQLiteDatabase db = this.getWritableDatabase();
+
 
         ContentValues values = new ContentValues();
-        values.put("name", user.getUserName());
-        values.put("ratings", user.getUserScore());
 
-        db.insert(TABLE_GAMERS, null, values);
-        db.close();
+        values.put(UserTable.COLUMN_NAME, user.getUserName());
+        values.put(UserTable.COLUMN_SCORE, user.getUserScore());
+
+        db.insert(UserTable.TABLE_NAME, null, values);
+
 
 
     }
@@ -155,7 +167,15 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         List<User> userList = new ArrayList<>();
 
         db = getReadableDatabase();
-        Cursor cr = db.rawQuery("SELECT * FROM " + TABLE_GAMERS, null);
+        Cursor cr = db.rawQuery("SELECT * FROM " + UserTable.TABLE_NAME, null);
+        if (cr.moveToFirst()) {
+            do {
+                User user = new User();
+                user.setUserName(cr.getString(cr.getColumnIndex(UserTable.COLUMN_NAME)));
+                user.setUserScore(cr.getInt(cr.getColumnIndex(UserTable.COLUMN_SCORE)));
+
+            }while(cr.moveToFirst());
+        }
 
         cr.close();
         return userList;
