@@ -57,11 +57,15 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 "name TEXT, " +
                 "score INTEGER )";
         */
-        db.execSQL(SQL_CREATE_USER_TABLE);
+
 
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
         //fills the database with questions
         fillQuestionsTable();
+
+
+        db.execSQL(SQL_CREATE_USER_TABLE);
+        //fill the database table with user name and score
 
 
 
@@ -77,20 +81,32 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addGamer(User user){
 
+    public void fillUserTable(String name, int num){
 
+        User newUser = new User(name,num);
+        newUser.setUserName(name);
+        newUser.setUserScore(num);
 
         ContentValues values = new ContentValues();
-
-        values.put(UserTable.COLUMN_NAME, user.getUserName());
-        values.put(UserTable.COLUMN_SCORE, user.getUserScore());
-
+        values.put(UserTable.COLUMN_NAME, newUser.getUserName());
+        values.put(UserTable.COLUMN_SCORE, newUser.getUserScore());
         db.insert(UserTable.TABLE_NAME, null, values);
 
 
-
     }
+
+    //public void addGamer(User player){
+
+        //ContentValues values = new ContentValues();
+        /*
+        values.put(UserTable.COLUMN_NAME, player.getUserName());
+        values.put(UserTable.COLUMN_SCORE, player.getUserScore());
+
+        db.insert(UserTable.TABLE_NAME, null, values);
+
+        */
+   // }
 
 
     private void fillQuestionsTable(){

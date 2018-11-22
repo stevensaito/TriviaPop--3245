@@ -23,25 +23,34 @@ public class results extends AppCompatActivity {
 
     private List<Question> userList;
     private String name;
-    private int useScore;
+
+
+    private EditText userText;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-
+        //Get intent from last activity
         Intent intent = getIntent();
-
+        //store score to int
         final int score = intent.getIntExtra("Score", 0);
 
+        final int userScore = score;
 
 
-
+        //display score
         TextView textViewScore = findViewById(R.id.txtViewUserScore);
         final EditText fieldEnterName = findViewById(R.id.fieldEnterName);
 
         textViewScore.setText("Final Score: " + score);
+
+        //get user name
+        userText = findViewById(R.id.fieldEnterName);
+
+
+
 
         Button buttonPlayAgain = findViewById(R.id.btnPlayAgain);
         Button buttonHome = findViewById(R.id.btnHome);
@@ -60,9 +69,16 @@ public class results extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-               /* name = fieldEnterName.getText().toString();
-                saveQuiz(name, score);*/
-                displayNextAct(name, score);
+                String userInput = userText.getText().toString();
+
+                //addUserInfo(userInput,score);
+                userText.setText("");
+                Intent i = new Intent(results.this, HighScores.class);
+                Bundle bundle = new Bundle ();
+                bundle.putInt("Scores", userScore);
+
+
+                startActivity(i);
             }
         });
 
@@ -81,23 +97,13 @@ public class results extends AppCompatActivity {
             }
         });
     }
+    /*
+    public void addUserInfo(String uName, int uScore) {
 
-    private void displayNextAct(String name, int score){
-
-        Intent intent = new Intent(results.this,HighScores.class);
-        startActivity(intent);
-    }
-
-    private void saveQuiz(String username, int userScore){
-
-        QuizDbHelper dbHelper = new QuizDbHelper(this);
-
-        User user = new User(username, userScore);
-
-        dbHelper.addGamer(user);
-
-
+        QuizDbHelper database = new QuizDbHelper(this);
+        database.fillUserTable(uName,uScore);
 
     }
+    */
 
 }
