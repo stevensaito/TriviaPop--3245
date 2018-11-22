@@ -44,25 +44,15 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
         //creates table to hold player name and score
         final String SQL_CREATE_USER_TABLE = "CREATE TABLE " +
-                UserTable.TABLE_NAME + " ( " +
+                UserTable.TABLE_NAME_SCORE + " ( " +
                 UserTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 UserTable.COLUMN_NAME + " TEXT, " +
                 UserTable.COLUMN_SCORE + " INTEGER " + ")";
-
-        //creates table to hold player name and score
-
-       /*String CREATE_GAMERS_TABLE = "CREATE TABLE "
-                + TABLE_GAMERS + " ( " +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "name TEXT, " +
-                "score INTEGER )";
-        */
 
 
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
         //fills the database with questions
         fillQuestionsTable();
-
 
         db.execSQL(SQL_CREATE_USER_TABLE);
         //fill the database table with user name and score
@@ -75,7 +65,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS " + QuestionsTable.TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + UserTable.TABLE_NAME_SCORE);
         onCreate(db);
 
 
@@ -85,28 +75,22 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     public void fillUserTable(String name, int num){
 
         User newUser = new User(name,num);
-        newUser.setUserName(name);
-        newUser.setUserScore(num);
 
-        ContentValues values = new ContentValues();
-        values.put(UserTable.COLUMN_NAME, newUser.getUserName());
-        values.put(UserTable.COLUMN_SCORE, newUser.getUserScore());
-        db.insert(UserTable.TABLE_NAME, null, values);
-
+        addGamer(newUser);
 
     }
 
-    //public void addGamer(User player){
+    public void addGamer(User player){
 
-        //ContentValues values = new ContentValues();
-        /*
+        ContentValues values = new ContentValues();
+
         values.put(UserTable.COLUMN_NAME, player.getUserName());
         values.put(UserTable.COLUMN_SCORE, player.getUserScore());
 
-        db.insert(UserTable.TABLE_NAME, null, values);
+        db.insert(UserTable.TABLE_NAME_SCORE, null, values);
 
-        */
-   // }
+
+    }
 
 
     private void fillQuestionsTable(){
@@ -183,7 +167,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         List<User> userList = new ArrayList<>();
 
         db = getReadableDatabase();
-        Cursor cr = db.rawQuery("SELECT * FROM " + UserTable.TABLE_NAME, null);
+        Cursor cr = db.rawQuery("SELECT * FROM " + UserTable.TABLE_NAME_SCORE, null);
         if (cr.moveToFirst()) {
             do {
                 User user = new User();

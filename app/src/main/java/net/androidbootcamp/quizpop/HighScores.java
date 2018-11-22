@@ -29,22 +29,20 @@ public class HighScores extends AppCompatActivity {
         Intent i = getIntent();
 
         //get intents
-        final String userName = i.getStringExtra("Name");
+        final String userName = i.getStringExtra("username");
         final int userScore = i.getIntExtra("Score",0);
 
         TextView user = findViewById(R.id.textViewDisplayScores);
-        user.setText(userName + " " + userScore);
+        user.setText("Name : " + userName + "  Score: " + userScore);
 
+
+        User newUser = new User(userName, userScore);
 
         QuizDbHelper dbHelper = new QuizDbHelper(this);
-
+        //dbHelper.addGamer(newUser);
         userList = dbHelper.getAllScores();
         
         listCountTotal = userList.size();
-
-
-
-
 
 
         
