@@ -18,14 +18,28 @@ public class HighScores extends AppCompatActivity {
     private int listCountTotal;
     private User user;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_scores);
 
-        userData = findViewById(R.id.textViewDisplayScores);
-        QuizDbHelper dbHelper = new QuizDbHelper(this);
+        Intent i = getIntent();
 
+        //get intents
+        final String userName = i.getStringExtra("username");
+        final int userScore = i.getIntExtra("Score",0);
+
+        TextView user = findViewById(R.id.textViewDisplayScores);
+        user.setText("Name : " + userName + "  Score: " + userScore);
+
+
+        User newUser = new User(userName, userScore);
+
+        QuizDbHelper dbHelper = new QuizDbHelper(this);
+        //dbHelper.addGamer(newUser);
         userList = dbHelper.getAllScores();
         
         listCountTotal = userList.size();
