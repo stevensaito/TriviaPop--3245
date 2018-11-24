@@ -74,6 +74,12 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     public void fillUserTable(String name, int num){
 
+        String un = "";
+        int pn =0;
+
+        un = name;
+        pn = num; 
+
         User newUser = new User(name,num);
 
         addGamer(newUser);
