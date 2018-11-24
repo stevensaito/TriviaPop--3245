@@ -55,7 +55,8 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         fillQuestionsTable();
 
         db.execSQL(SQL_CREATE_USER_TABLE);
-        //fill the database table with user name and score
+
+
 
 
 
@@ -72,17 +73,14 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
 
-    public void fillUserTable(String name, int num){
+    public void fillUserTable(){
 
-        String un = "";
-        int pn =0;
+       String user;
+       int num;
 
-        un = name;
-        pn = num; 
+       User newUser = new User();
 
-        User newUser = new User(name,num);
-
-        addGamer(newUser);
+       addGamer(newUser);
 
     }
 
@@ -115,69 +113,103 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q4 = new Question ("Which US territory was so infested with brown tree snakes that toxic mice were parachuted in to poison them in 2013? " ,
                 "Florida", "New York" ,"Guam", "Puerto Rico", 3);
         addQuestion(q4);
-        Question q5 = new Question("Which nation was the most visited in 2011 with 79.5 million tourists?" ,"Brazil","USA","Japan", "France",4);
+        Question q5 = new Question("Which nation was the most visited in 2011 with 79.5 million tourists?" ,
+                "Brazil","USA","Japan", "France",4);
         addQuestion(q5);
-        Question q6 = new Question("Which 2000 email virus caused losses of $10 billion dollar in 20 countries by pretending ut was a love letter?" ,"Romeo Virus","Love Bug Virus","XO Virus", "Deadly Valentine Virus",2);
+        Question q6 = new Question("Which 2000 email virus caused losses of $10 billion dollar in 20 countries by pretending ut was a love letter?" ,
+                "Romeo Virus","Love Bug Virus","XO Virus", "Deadly Valentine Virus",2);
         addQuestion(q6);
-        Question q7 = new Question("As of 2015, which goalie holds the record for the most wins in a single season in NHL history?" ,"Bernie Parent","Roberto Luongo","Patrick Roy", "Martin Brodeur",4);
+        Question q7 = new Question("As of 2015, which goalie holds the record for the most wins in a single season in NHL history?" ,
+                "Bernie Parent","Roberto Luongo","Patrick Roy", "Martin Brodeur",4);
         addQuestion(q7);
-        Question q8 = new Question("Named after the Greek Goddess of victory, which brand company saw its founder, Phil Knight, step down as CEO in 2004?" ,"Addidas","Nike","Asics", "Reebok",2);
+        Question q8 = new Question("Named after the Greek Goddess of victory, which brand company saw its founder, Phil Knight, step down as CEO in 2004?" ,
+                "Addidas","Nike","Asics", "Reebok",2);
         addQuestion(q8);
-        Question q9 = new Question("For which 2012 movie did Ang Lee win his second Oscar ofr Best Director" ,"Life of Pi","Django Unchained","Brokeback Mountain", "Cloud Atlas",1);
+        Question q9 = new Question("For which 2012 movie did Ang Lee win his second Oscar ofr Best Director" ,
+                "Life of Pi","Django Unchained","Brokeback Mountain", "Cloud Atlas",1);
         addQuestion(q9);
-        Question q10 = new Question("What is the last name of 'Rolling in the Deep' singer Adele?" ,"Adams","Ames","Armstrong", "Adins",4);
+        Question q10 = new Question("What is the last name of 'Rolling in the Deep' singer Adele?" ,
+                "Adams","Ames","Armstrong", "Adins",4);
         addQuestion(q10);
-        Question q11 = new Question("What was Daniel Craig's role in the Star Wars: The Force Awakens?" ,"Unkar Plutt","A Stormtrooper","Lieutenant Connix", "A Bar Patron",2);
+        Question q11 = new Question("What was Daniel Craig's role in the Star Wars: The Force Awakens?" ,
+                "Unkar Plutt","A Stormtrooper","Lieutenant Connix", "A Bar Patron",2);
         addQuestion(q11);
-        Question q12 = new Question("What 17-pound specimen of fruit fetched $6,100 at a 2008 auction in Japan, where it is considered a luxury food?" ,"Jackfruit","Pumpkin","Watermelon", "Honeydew",3);
+        Question q12 = new Question("What 17-pound specimen of fruit fetched $6,100 at a 2008 auction in Japan, where it is considered a luxury food?" ,
+                "Jackfruit","Pumpkin","Watermelon", "Honeydew",3);
         addQuestion(q12);
-        Question q13 = new Question("What is Grinch's pet Max?" ,"White Christmas","Cat","Canary", "Dog",4);
+        Question q13 = new Question("What is Grinch's pet Max?" ,
+                "White Christmas","Cat","Canary", "Dog",4);
         addQuestion(q13);
-        Question q14 = new Question("Which city is associated with Heathrow Airport?" ,"Glasgow","Birmingham","London", "Dublin",3);
+        Question q14 = new Question("Which city is associated with Heathrow Airport?" ,
+                "Glasgow","Birmingham","London", "Dublin",3);
         addQuestion(q14);
-        Question q15 = new Question("Which is the only bird species that can fly backwards?" ,"Hummingbird","Swallow","Swifts", "Wren",1);
+        Question q15 = new Question("Which is the only bird species that can fly backwards?" ,
+                "Hummingbird","Swallow","Swifts", "Wren",1);
         addQuestion(q15);
-        Question q16 = new Question("Name the Egyptian-born star of 'Doctor Zhivago' and 'Lawrence of Arabia' who died in 2015 aged 83?" ,"Youssef Wahbi","Omar Sharif","Tony Shalhoub", "Omid Djalili",2);
+        Question q16 = new Question("Name the Egyptian-born star of 'Doctor Zhivago' and 'Lawrence of Arabia' who died in 2015 aged 83?" ,
+                "Youssef Wahbi","Omar Sharif","Tony Shalhoub", "Omid Djalili",2);
         addQuestion(q16);
-        Question q17 = new Question("What name was Albert de Salvo better known?" ,"Jack the Ripper","The Boston Strangler","The Night Caller", "The Moors Murderer",2);
+        Question q17 = new Question("What name was Albert de Salvo better known?" ,
+                "Jack the Ripper","The Boston Strangler","The Night Caller", "The Moors Murderer",2);
         addQuestion(q17);
-        Question q18 = new Question("If 'feline' means cat-like and 'canine' means dog-like, what does 'ranine' mean?" ,"Cow-like","Rat-like","Bird-like", "Frog-like",4);
+        Question q18 = new Question("If 'feline' means cat-like and 'canine' means dog-like, what does 'ranine' mean?" ,
+                "Cow-like","Rat-like","Bird-like", "Frog-like",4);
         addQuestion(q18);
-        Question q19 = new Question("What is the capital city of Croatia?" ,"Sarajevo","Vienna","Zagreb", "Ljubljana",3);
+        Question q19 = new Question("What is the capital city of Croatia?" ,
+                "Sarajevo","Vienna","Zagreb", "Ljubljana",3);
         addQuestion(q19);
-        Question q20 = new Question("How many spots are there on traditional 6-sided dices?" ,"21","22","23", "20",1);
+        Question q20 = new Question("How many spots are there on traditional 6-sided dices?" ,
+                "21","22","23", "20",1);
         addQuestion(q20);
-        Question q21 = new Question("Which contentious word means to open rocks by means of high pressure chemicals in order to obtain natural gas or oil?" ,"Screeding","Termiting","Fracking", "Bugging",3);
+        Question q21 = new Question("Which contentious word means to open rocks by means of high pressure chemicals in order to obtain natural gas or oil?" ,
+                "Screeding","Termiting","Fracking", "Bugging",3);
         addQuestion(q21);
-        Question q22 = new Question("Which of the islands listed is northernmost?" ,"Isle of Man","Cuba","Greenland", "Pitcairn",3);
+        Question q22 = new Question("Which of the islands listed is northernmost?" ,
+                "Isle of Man","Cuba","Greenland", "Pitcairn",3);
         addQuestion(q22);
-        Question q23 = new Question("Some birds are 'fossorial'. What does this mean?" ,"They dig burrows","The have no song","They use other birds nests", "They cannot fly",1);
+        Question q23 = new Question("Some birds are 'fossorial'. What does this mean?" ,
+                "They dig burrows","The have no song","They use other birds nests", "They cannot fly",1);
         addQuestion(q23);
-        Question q24 = new Question("Which writer created the character of Sherlock Holmes?" ,"Robert E. Howard","M.R. James","Sir Arthur Conan Doyle", "H.P. Lovecraft",3);
+        Question q24 = new Question("Which writer created the character of Sherlock Holmes?" ,
+                "Robert E. Howard","M.R. James","Sir Arthur Conan Doyle", "H.P. Lovecraft",3);
         addQuestion(q24);
-        Question q25 = new Question("Which 'M' nation would you find in Europe?" ,"Mali","Malawi","Mongolia", "Macedonia",4);
+        Question q25 = new Question("Which 'M' nation would you find in Europe?" ,
+                "Mali","Malawi","Mongolia", "Macedonia",4);
         addQuestion(q25);
-        Question q26 = new Question("Which World War II army general was elected president of France in 1958?" ,"Vincent Auriol","The have no song","They use other birds nests", "They cannot fly",1);
+        //Correct Answers?
+        Question q26 = new Question("Which World War II army general was elected president of France in 1958?" ,
+                "Vincent Auriol","The have no song","They use other birds nests", "They cannot fly",1);
         addQuestion(q26);
-        Question q27 = new Question("Some birds are 'fossorial'. What does this mean?" ,"They dig burrows","Charles de Gaulle","Rene Coty", "Georges Pompidou",2);
+        //Duplicate question?
+        Question q27 = new Question("Some birds are 'fossorial'. What does this mean?" ,
+                "They dig burrows","Charles de Gaulle","Rene Coty", "Georges Pompidou",2);
         addQuestion(q27);
-        Question q28 = new Question("Daniel Ek is the founder of which online service?" ,"Spotify","Blinkbox","Twitter", "Netflix",1);
+        Question q28 = new Question("Daniel Ek is the founder of which online service?" ,
+                "Spotify","Blinkbox","Twitter", "Netflix",1);
         addQuestion(q28);
-        Question q29 = new Question("Who was on the cover of the first issue of Playboy?" ,"Jayne Mansfield","Mamie Van Doren","Marilyn Monroe", "Dagmar",3);
+        Question q29 = new Question("Who was on the cover of the first issue of Playboy?" ,
+                "Jayne Mansfield","Mamie Van Doren","Marilyn Monroe", "Dagmar",3);
         addQuestion(q29);
-        Question q30 = new Question("What is the pigment in plants which gives leaves their green colour?" ,"Chlorophyll","Tannin","Carotene", "Phycocyanin",1);
+        Question q30 = new Question("What is the pigment in plants which gives leaves their green colour?" ,
+                "Chlorophyll","Tannin","Carotene", "Phycocyanin",1);
         addQuestion(q30);
-        Question q31 = new Question("How many children did Elvis Presley have?" ,"7","1","3", "2",2);
+        Question q31 = new Question("How many children did Elvis Presley have?" ,
+                "7","1","3", "2",2);
         addQuestion(q31);
-        Question q32 = new Question("Which disease is caused by inflammation of the membrane covering the brain and spinal cord?" ,"Rubella","Scarlet Fever","Tenanus", "Meningitis",4);
+        Question q32 = new Question("Which disease is caused by inflammation of the membrane covering the brain and spinal cord?" ,
+                "Rubella","Scarlet Fever","Tenanus", "Meningitis",4);
         addQuestion(q32);
-        Question q33 = new Question("Finish the saying: 'No news _____'?" ,"Is bad for newspapers","Is called a slow day","Is good news", "Is better than bad news",3);
+        Question q33 = new Question("Finish the saying: 'No news _____'?" ,
+                "Is bad for newspapers","Is called a slow day","Is good news", "Is better than bad news",3);
         addQuestion(q33);
-        Question q34 = new Question("Finish the saying: 'Candy is dandy, but _____'?" ,"So fattening","Liquor is quicker","Chocolate is better", "I want diamonds",2);
+        Question q34 = new Question("Finish the saying: 'Candy is dandy, but _____'?" ,
+                "So fattening","Liquor is quicker","Chocolate is better", "I want diamonds",2);
         addQuestion(q34);
-        Question q35 = new Question("How many players are there on the field at a time for a baseball team?" ,"7","9","11", "12",2);
+        Question q35 = new Question("How many players are there on the field at a time for a baseball team?" ,
+                "7","9","11", "12",2);
         addQuestion(q35);
-        Question q36 = new Question("Barry Bonds is a world famous player of what sport?" ,"America football","Basketball","Ice hockey", "Baseball",4);
+        Question q36 = new Question("Barry Bonds is a world famous player of what sport?" ,
+                "America football","Basketball","Ice hockey", "Baseball",4);
         addQuestion(q36);
 
     }

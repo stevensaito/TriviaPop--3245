@@ -16,7 +16,6 @@ public class TitlePage extends AppCompatActivity {
         setContentView(R.layout.activity_title_page);
 
         Button btnShareApp;
-        Intent shareIntent;
 
         btnShareApp = findViewById(R.id.btnShare);
         btnShareApp.setOnClickListener(new View.OnClickListener() {

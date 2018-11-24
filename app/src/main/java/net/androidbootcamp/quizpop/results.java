@@ -88,8 +88,6 @@ public class results extends AppCompatActivity {
                     i.putExtra("username", value);
                     i.putExtra("Score", num);
 
-
-                    //addUserInfo(value, num);
                     startActivityForResult(i, 1);
 
 
@@ -114,12 +112,6 @@ public class results extends AppCompatActivity {
         });
     }
 
-    public void addUserInfo(String uName, int uScore) {
-
-        QuizDbHelper database = new QuizDbHelper(this);
-        database.fillUserTable(uName,uScore);
-
-    }
 
 
 }
