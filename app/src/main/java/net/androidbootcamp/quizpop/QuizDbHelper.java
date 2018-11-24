@@ -147,6 +147,33 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         addQuestion(q22);
         Question q23 = new Question("Some birds are 'fossorial'. What does this mean?" ,"They dig burrows","The have no song","They use other birds nests", "They cannot fly",1);
         addQuestion(q23);
+        Question q24 = new Question("Which writer created the character of Sherlock Holmes?" ,"Robert E. Howard","M.R. James","Sir Arthur Conan Doyle", "H.P. Lovecraft",3);
+        addQuestion(q24);
+        Question q25 = new Question("Which 'M' nation would you find in Europe?" ,"Mali","Malawi","Mongolia", "Macedonia",4);
+        addQuestion(q25);
+        Question q26 = new Question("Which World War II army general was elected president of France in 1958?" ,"Vincent Auriol","The have no song","They use other birds nests", "They cannot fly",1);
+        addQuestion(q26);
+        Question q27 = new Question("Some birds are 'fossorial'. What does this mean?" ,"They dig burrows","Charles de Gaulle","Rene Coty", "Georges Pompidou",2);
+        addQuestion(q27);
+        Question q28 = new Question("Daniel Ek is the founder of which online service?" ,"Spotify","Blinkbox","Twitter", "Netflix",1);
+        addQuestion(q28);
+        Question q29 = new Question("Who was on the cover of the first issue of Playboy?" ,"Jayne Mansfield","Mamie Van Doren","Marilyn Monroe", "Dagmar",3);
+        addQuestion(q29);
+        Question q30 = new Question("What is the pigment in plants which gives leaves their green colour?" ,"Chlorophyll","Tannin","Carotene", "Phycocyanin",1);
+        addQuestion(q30);
+        Question q31 = new Question("How many children did Elvis Presley have?" ,"7","1","3", "2",2);
+        addQuestion(q31);
+        Question q32 = new Question("Which disease is caused by inflammation of the membrane covering the brain and spinal cord?" ,"Rubella","Scarlet Fever","Tenanus", "Meningitis",4);
+        addQuestion(q32);
+        Question q33 = new Question("Finish the saying: 'No news _____'?" ,"Is bad for newspapers","Is called a slow day","Is good news", "Is better than bad news",3);
+        addQuestion(q33);
+        Question q34 = new Question("Finish the saying: 'Candy is dandy, but _____'?" ,"So fattening","Liquor is quicker","Chocolate is better", "I want diamonds",2);
+        addQuestion(q34);
+        Question q35 = new Question("How many players are there on the field at a time for a baseball team?" ,"7","9","11", "12",2);
+        addQuestion(q35);
+        Question q36 = new Question("Barry Bonds is a world famous player of what sport?" ,"America football","Basketball","Ice hockey", "Baseball",4);
+        addQuestion(q36);
+
     }
     private void addQuestion(Question question){
 
