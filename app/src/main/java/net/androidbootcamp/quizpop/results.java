@@ -46,6 +46,7 @@ public class results extends AppCompatActivity {
 
         //display score
         TextView textViewScore = findViewById(R.id.txtViewUserScore);
+        TextView txtHighScore = findViewById(R.id.txtHighScore);
         //final EditText fieldEnterName = findViewById(R.id.fieldEnterName);
 
 
@@ -62,14 +63,16 @@ public class results extends AppCompatActivity {
         Button buttonHome = findViewById(R.id.btnHome);
         final Button buttonSubmit = findViewById(R.id.btnResultsSubmit);
 
-        if(score >= 37) {
+        if(score >= 35) {
             buttonSubmit.setVisibility(View.VISIBLE);
             userText.setVisibility(View.VISIBLE);
+            txtHighScore.setVisibility(View.VISIBLE);
             //fieldEnterName.setVisibility(View.VISIBLE);
         }
         else {
             buttonSubmit.setVisibility(View.INVISIBLE);
             userText.setVisibility(View.INVISIBLE);
+            txtHighScore.setVisibility(View.INVISIBLE);
             //fieldEnterName.setVisibility(View.INVISIBLE);
         }
 

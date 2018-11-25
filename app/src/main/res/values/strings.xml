@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Trivia Pop</string>
+    <string name="app_name">Trivia Pop!</string>
     <string name="btnPlay">Play</string>
     <string name="btnShare">Share</string>
     <string name="btnPlayGame">Play the game!</string>
@@ -18,4 +18,11 @@
     <string name="btnResultsSubmit">Submit</string>
     <string name="btnPlayAgain">Play Again</string>
     <string name="textViewHighScores">High Scores</string>
+    <string name="HowToScore">SCORE - This text will show you how many points you have. The faster you answer the question, the more points you will receive</string>
+    <string name="HowToQ">Qs LEFT - This will show you how many questions you have answered out of 5</string>
+    <string name="HowToTimer">TIMER - This is the countdown timer. Once the timer reaches 0, you can no longer answer the question</string>
+    <string name="HowToQuestions">QUESTIONS - This is where the questions will appear</string>
+    <string name="HowToOptions">OPTIONS - This is where your options will appear. You can select one option and its bubble will turn red to show that you have selected it</string>
+    <string name="HowToConfirm">CONFIRM - Once you have selected an option, you can click this button to submit your choice</string>
+    <string name="txtHighScore">You have gotten a high score!</string>
 </resources>
