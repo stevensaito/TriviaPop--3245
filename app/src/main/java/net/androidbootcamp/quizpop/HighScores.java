@@ -1,72 +1,51 @@
 package net.androidbootcamp.quizpop;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
-import android.widget.ListView;
-
-import java.util.ArrayList;
-
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class HighScores extends AppCompatActivity {
 
 
+    private List<User>userList;
 
-    ArrayList<String> array = new ArrayList<String>();
-    ListView showList;
+    private EditText userText;
+
+
+    private RecyclerView mRecylcerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayourManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_scores);
 
+        Intent i = getIntent();
 
         //get intents
-        Intent i = getIntent();
         final String userName = i.getStringExtra("username");
         final int userScore = i.getIntExtra("Score",0);
-
-        showList = findViewById(R.id.listView);
-        //Convert int into string
-        int num = userScore;
-        String finalScore = Integer.toString(num);
-
-        String userData = "Name: " + userName + " Score: " + finalScore;
-        //add to arraylist and display to list view
         /*
-        array.add(userData);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(HighScores.this, android.R.layout.simple_list_item_1,array);
-        showList.setAdapter(adapter);
-
-
-        //SharedPreferences to save user data
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("User" , userData);
+        TextView user = findViewById(R.id.textViewDisplayScores);
+        user.setText("Name : " + userName + "  Score: " + userScore);
         */
-
-
-            array.add("Name: " +userName);
-            array.add("Score: " +finalScore);
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(HighScores.this, android.R.layout.simple_list_item_1,array);
-            showList.setAdapter(adapter);
-
-
-            //SharedPreferences to save user data
-            SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putString("User" , userName);
-            editor.putString("Score", finalScore);
-            editor.commit();
+        userText = findViewById(R.id.editTextEnterName);
 
 
 
+        //Button to submit name and scores
+        Button btnSubmit = findViewById(R.id.btnSubmitScores);
         //Button to play again
         Button btnPlay =findViewById(R.id.btnPlayAgain);
 
@@ -77,7 +56,32 @@ public class HighScores extends AppCompatActivity {
             }
         });
 
+        //User submits their name
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //store user input string into a variable
+                String value = userText.getText().toString();
+                EditText uName = findViewById(R.id.editTextEnterName);
+                uName.setText(value);
+
+                //store user score into a variable to be pass to the next class
+                int num = userScore;
+
+                TextView user = findViewById(R.id.textViewDisplayScores);
+                user.setText("Name : " + value + "  Score: " + num);
+
+
+            }
+        });
+
+
+
+        displayAllUserScores();
+
 
     }
 
+    private void displayAllUserScores() {
+    }
 }
