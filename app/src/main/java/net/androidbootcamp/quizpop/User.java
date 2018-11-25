@@ -8,18 +8,16 @@ public final class User {
 
     public User() {}
 
-    public User(String userName, int userScore) {
-        this.userName = userName;
-        this.userScore = userScore;
+    public User(String name, int score) {
+        userName = name;
+        userScore = score;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    public void setUserName(String userName) { this.userName = userName; }
 
     public int getUserScore() {
         return userScore;

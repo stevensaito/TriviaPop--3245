@@ -3,6 +3,7 @@ package net.androidbootcamp.quizpop;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,10 @@ public class HighScores extends AppCompatActivity {
     private EditText userText;
 
 
+    private RecyclerView mRecylcerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayourManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,9 @@ public class HighScores extends AppCompatActivity {
         user.setText("Name : " + userName + "  Score: " + userScore);
         */
         userText = findViewById(R.id.editTextEnterName);
+
+
+
         //Button to submit name and scores
         Button btnSubmit = findViewById(R.id.btnSubmitScores);
         //Button to play again
