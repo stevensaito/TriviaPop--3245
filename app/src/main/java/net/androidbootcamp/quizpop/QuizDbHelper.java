@@ -56,10 +56,6 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
         db.execSQL(SQL_CREATE_USER_TABLE);
 
-
-
-
-
     }
 
     @Override
@@ -72,17 +68,6 @@ public class QuizDbHelper extends SQLiteOpenHelper {
 
     }
 
-
-    public void fillUserTable(){
-
-       String user;
-       int num;
-
-       User newUser = new User();
-
-       addGamer(newUser);
-
-    }
 
     public void addGamer(User player){
 
@@ -237,7 +222,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
             do {
                 User user = new User();
                 user.setUserName(cr.getString(cr.getColumnIndex(UserTable.COLUMN_NAME)));
-                user.setUserScore(cr.getInt(cr.getColumnIndex(UserTable.COLUMN_SCORE)));
+                user.setUserScore(cr.getString(cr.getColumnIndex(UserTable.COLUMN_SCORE)));
 
             }while(cr.moveToFirst());
         }

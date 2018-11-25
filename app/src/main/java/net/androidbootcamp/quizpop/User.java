@@ -3,12 +3,12 @@ package net.androidbootcamp.quizpop;
 public final class User {
 
     private String userName;
-    private int userScore;
+    private String userScore;
 
 
     public User() {}
 
-    public User(String name, int score) {
+    public User(String name, String score) {
         userName = name;
         userScore = score;
     }
@@ -19,11 +19,14 @@ public final class User {
 
     public void setUserName(String userName) { this.userName = userName; }
 
-    public int getUserScore() {
-        return userScore;
+    public String getUserScore() { return userScore; }
+
+    public void setUserScore(String userScore) {
+        this.userScore = userScore;
     }
 
-    public void setUserScore(int userScore) {
-        this.userScore = userScore;
+    public String toString (){
+
+        return "Name: " + userName + " Score: " + userScore;
     }
 }
