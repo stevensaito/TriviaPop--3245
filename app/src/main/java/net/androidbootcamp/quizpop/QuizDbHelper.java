@@ -73,14 +73,9 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
 
-    public void fillUserTable(){
+    public void fillUserTable(User userData){
 
-       String user;
-       int num;
-
-       User newUser = new User();
-
-       addGamer(newUser);
+       addGamer(userData);
 
     }
 

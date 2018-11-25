@@ -26,4 +26,9 @@ public final class User {
     public void setUserScore(String userScore) {
         this.userScore = userScore;
     }
+
+    public String toString(){
+
+        return "Name: " + getUserName() + " Score: " + getUserScore();
+    }
 }
