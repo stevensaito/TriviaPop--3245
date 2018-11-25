@@ -20,6 +20,13 @@ public class HighScores extends AppCompatActivity {
     ArrayList<String> array = new ArrayList<String>();
     ListView showList;
 
+    public static final String SHARED_PREFS = "sharedPrefs";
+    public static final String TEXT = "test";
+    public static final String SCORE = "score";
+
+    private String text;
+    private String textScore;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,11 +55,14 @@ public class HighScores extends AppCompatActivity {
 
 
         //SharedPreferences to save user data
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("User" , userName);
-        editor.putString("Score", finalScore);
+
+        editor.putString(TEXT , userName);
+        editor.putString(SCORE, finalScore);
         editor.commit();
+
+        //loadData();
 
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,4 +72,12 @@ public class HighScores extends AppCompatActivity {
         });
 
     }
+    public void loadData(){
+
+        SharedPreferences sharedPreferences = getSharedPreferences(SHARED_PREFS, MODE_PRIVATE);
+        text = sharedPreferences.getString(TEXT,"");
+        textScore = sharedPreferences.getString(SCORE,"");
+
+    }
+
 }
