@@ -47,7 +47,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 UserTable.TABLE_NAME_SCORE + " ( " +
                 UserTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 UserTable.COLUMN_NAME + " TEXT, " +
-                UserTable.COLUMN_SCORE + " INTEGER " + ")";
+                UserTable.COLUMN_SCORE + " TEXT " + ")";
 
 
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
@@ -237,7 +237,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
             do {
                 User user = new User();
                 user.setUserName(cr.getString(cr.getColumnIndex(UserTable.COLUMN_NAME)));
-                user.setUserScore(cr.getInt(cr.getColumnIndex(UserTable.COLUMN_SCORE)));
+                user.setUserScore(cr.getString(cr.getColumnIndex(UserTable.COLUMN_SCORE)));
 
             }while(cr.moveToFirst());
         }

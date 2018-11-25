@@ -42,9 +42,6 @@ public class HighScores extends AppCompatActivity {
         int num = userScore;
         String finalScore = Integer.toString(num);
 
-        String userData = "Name: " + userName + " Score: " + finalScore;
-
-
         //Button to play again
         Button btnPlay = findViewById(R.id.btnPlayAgain);
 
@@ -61,6 +58,7 @@ public class HighScores extends AppCompatActivity {
         editor.putString(TEXT , userName);
         editor.putString(SCORE, finalScore);
         editor.commit();
+
 
         //loadData();
 
