@@ -50,37 +50,27 @@ public class HighScores extends AppCompatActivity {
         String finalScore = Integer.toString(num);
         Button btnPlay = findViewById(R.id.btnPlayAgain);
 
+        showList = findViewById(R.id.listView);
+        array.add("Name: " +userName);
+        array.add("Score: " +finalScore);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(HighScores.this, android.R.layout.simple_list_item_1,array);
 
-        //showList = findViewById(R.id.listView);
-        textViewName = findViewById(R.id.textViewName);
-        textViewScore = findViewById(R.id.textViewScore);
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
 
-
-            //Convert int into string
-
-            String name = "";
-            String fScore = "";
-            if (userName!="" && finalScore!=""){
-
-                textViewName.setText("Name : " +userName);
-                textViewScore.setText("Score: " +finalScore);
-                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-                SharedPreferences.Editor editor = sharedPreferences.edit();
+            //for (int count = 0; count < array.size(); ++count) {
 
                 editor.putString(TEXT, i.getStringExtra("username"));
+                editor.apply();
                 editor.putString(SCORE, String.valueOf(i.getIntExtra("Score",0)));
                 editor.apply();
+               // editor.putStringSet(TEXT, (Set<String>) array);
+            //}
 
-
-            }else{
-
-                SharedPreferences sp = getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
-                String np = sp.getString("TEXT","");
-                String ps = sp.getString("SCORE",""); 
-                textViewName.setText("Name: " +name);
-                textViewScore.setText("Score: "+fScore);
-
-            }
+            text = sharedPreferences.getString(TEXT, userName);
+            textScore = sharedPreferences.getString(SCORE, finalScore);
+            showList.setAdapter(adapter);
+            loadData();
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
